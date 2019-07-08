@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>도커 설치와 기본 명령어 | 뻠&#39;s 블로그</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Docker 기본0. 설치Docker CE 설치법(ubuntu)이전 버전 삭제하기$ sudo apt-get remove docker docker-engine docker.io containerd runcapt 저장소 지정 apt 패키지 업데이트 $ sudo apt-get update HTTPS를 사용하기 위한 패키지 설치 $ sudo apt-get inst">
+<meta name="keywords" content="docker,basic,installation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="도커 설치와 기본 명령어">
+<meta property="og:url" content="https://qjatn9957.github.io/2019/07/09/도커-설치와-기본-명령어/index.html">
+<meta property="og:site_name" content="뻠&#39;s 블로그">
+<meta property="og:description" content="Docker 기본0. 설치Docker CE 설치법(ubuntu)이전 버전 삭제하기$ sudo apt-get remove docker docker-engine docker.io containerd runcapt 저장소 지정 apt 패키지 업데이트 $ sudo apt-get update HTTPS를 사용하기 위한 패키지 설치 $ sudo apt-get inst">
+<meta property="og:locale" content="ko">
+<meta property="og:updated_time" content="2019-07-08T15:03:56.361Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="도커 설치와 기본 명령어">
+<meta name="twitter:description" content="Docker 기본0. 설치Docker CE 설치법(ubuntu)이전 버전 삭제하기$ sudo apt-get remove docker docker-engine docker.io containerd runcapt 저장소 지정 apt 패키지 업데이트 $ sudo apt-get update HTTPS를 사용하기 위한 패키지 설치 $ sudo apt-get inst">
+  
+    <link rel="alternate" href="/atom.xml" title="뻠&#39;s 블로그" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- SEO tags -->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140496965-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-140496965-1');
+  </script>
+  <!-- Facebook SDK3.3 -->
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '360786367905976',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v3.3'
+      });
+        
+      FB.AppEvents.logPageView();   
+        
+    };
+
+    (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+  <!-- Naver WebMasterTool -->
+  <meta name="naver-site-verification" content="2b4b8a2836fa4c0e2bf862ff81752b122ffcb5e3">
+  <!-- SEO tags END-->
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner">
+    <video id="banner-video" autoplay loop poster="/css/images/banner.webp">
+      <source src="/css/videos/Pexels Videos 2169879.mp4" type="video/mp4">
+      이 브라우저에서는 지원하지 않는 형식입니다.
+    </video>
+  </div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">뻠&#39;s 블로그</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="검색"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://qjatn9957.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-도커-설치와-기본-명령어" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/09/도커-설치와-기본-명령어/" class="article-date">
+  <time datetime="2019-07-08T15:02:46.000Z" itemprop="datePublished">2019-07-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/docker/">docker</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      도커 설치와 기본 명령어
+    </h1>
+  
+
+        6 min read
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Docker-기본"><a href="#Docker-기본" class="headerlink" title="Docker 기본"></a>Docker 기본</h1><h2 id="0-설치"><a href="#0-설치" class="headerlink" title="0. 설치"></a>0. 설치</h2><h3 id="Docker-CE-설치법-ubuntu"><a href="#Docker-CE-설치법-ubuntu" class="headerlink" title="Docker CE 설치법(ubuntu)"></a>Docker CE 설치법(ubuntu)</h3><h3 id="이전-버전-삭제하기"><a href="#이전-버전-삭제하기" class="headerlink" title="이전 버전 삭제하기"></a>이전 버전 삭제하기</h3><pre><code>$ sudo apt-get remove docker docker-engine docker.io containerd runc</code></pre><h3 id="apt-저장소-지정"><a href="#apt-저장소-지정" class="headerlink" title="apt 저장소 지정"></a>apt 저장소 지정</h3><ol>
+<li><p><code>apt</code> 패키지 업데이트</p>
+<pre><code>$ sudo apt-get update</code></pre></li>
+<li><p>HTTPS를 사용하기 위한 패키지 설치</p>
+<pre><code>$ sudo apt-get install \\
+    apt-transport https \\
+    ca-certificates \\
+    curl \\
+    gnupg-agent \\
+    software-properties-common</code></pre></li>
+<li><p>도커 공식 GPG key 추가</p>
+<pre><code>$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</code></pre><p> 8 글자의 fingerprint <code>9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88</code>로 인증이 허가된다.</p>
+<pre><code>$ sudo apt-key fingerprint 0EBFCD88
+
+pub        rsa4096 2017-02-22 [SCEA]
+        9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88
+uid            [unknown] Docker Release (CE deb) &lt;docker@docker.com&gt;
+sub   rsa4096 2017-02-22 [S]</code></pre></li>
+<li><p>아래의 커맨드를 실행해 <strong>stable</strong> 저장소를 세팅한다. <strong>nightly</strong>나 <strong>test</strong>저장소를 추가하려면, 아래의 커맨드 끝에 <code>stable</code>이나 <code>test</code>를 붙이면 된다(혹은 둘다)</p>
+<pre><code>$ sudo add-apt-repository \\
+   &quot;deb [arch=amd64] &lt;https://download.docker.com/linux/ubuntu&gt; \\
+   $(lsb_release -cs) \\
+   stable&quot;</code></pre></li>
+</ol>
+<h3 id="도커-CE-설치"><a href="#도커-CE-설치" class="headerlink" title="도커 CE 설치"></a>도커 CE 설치</h3><ol>
+<li><p><code>apt</code> 업데이트</p>
+<pre><code>$ sudo apt-get update</code></pre></li>
+<li><p>최신 버전 설치(<code>docker-ce</code>, <code>docker-cli</code>, <code>containerd.io</code>)</p>
+<pre><code>$ sudo apt-get install docker-ce docker-ce-cli containerd.io</code></pre></li>
+<li><p>특정 버전 설치<br>a. 설치 가능한 버전을 확인<br>b. 두번째 열에 적혀있는 버전<code>5:18.09.1~3-0~ubuntu-xenial</code>을 지정하여 특정 버전을 설치</p>
+<pre><code>$ apt-cache madison docker-ce
+
+  docker-ce | 5:18.09.1~3-0~ubuntu-xenial | &lt;https://download.docker.com/linux/ubuntu&gt;  xenial/stable amd64 Packages
+  docker-ce | 5:18.09.0~3-0~ubuntu-xenial | &lt;https://download.docker.com/linux/ubuntu&gt;  xenial/stable amd64 Packages
+  docker-ce | 18.06.1~ce~3-0~ubuntu       | &lt;https://download.docker.com/linux/ubuntu&gt;  xenial/stable amd64 Packages
+  docker-ce | 18.06.0~ce~3-0~ubuntu       | &lt;https://download.docker.com/linux/ubuntu&gt;  xenial/stable amd64 Packages
+  ..
+
+$ sudo apt-get install docker-ce=&lt;VERSION_STRING&gt; docker-ce-cli=&lt;VERSION_STRING&gt; containerd.io</code></pre></li>
+<li><p><code>hello-world</code>이미지를 실행시켜 설치 확인</p>
+<pre><code>$ sudo docker run hello-world</code></pre></li>
+</ol>
+<h2 id="1-기본-문법"><a href="#1-기본-문법" class="headerlink" title="1. 기본 문법"></a>1. 기본 문법</h2><h3 id="search-명령으로-이미지-검색하기"><a href="#search-명령으로-이미지-검색하기" class="headerlink" title="search 명령으로 이미지 검색하기"></a><code>search</code> 명령으로 이미지 검색하기</h3><p><strong>docker search &lt;이미지 이름&gt;</strong></p>
+<ul>
+<li><a href="https://hub.docker.com/" rel="external nofollow noopener noreferrer" target="_blank">Docker Hub</a>의 이미지를 검색한다</li>
+</ul>
+<h3 id="sudo-입력하지-않기"><a href="#sudo-입력하지-않기" class="headerlink" title="sudo 입력하지 않기"></a><code>sudo</code> 입력하지 않기</h3><p>루트 계정으로 로그인</p>
+<pre><code>$ sudo su</code></pre><p>현재 계정을 docker 그룹에 포함(docker 그룹은 root 권한과 동일)</p>
+<pre><code>$ sudo usermod -aG docker ${USER}
+$ sudo service docker restart</code></pre><h3 id="pull-명령으로-이미지-받기"><a href="#pull-명령으로-이미지-받기" class="headerlink" title="pull 명령으로 이미지 받기"></a><code>pull</code> 명령으로 이미지 받기</h3><p><strong>docker pull &lt;이미지 이름&gt;:&lt;태그&gt;</strong></p>
+<ul>
+<li><p>Docker Hub에서 우분투 이미지 받아보기</p>
+<pre><code>$ sudo docker pull ubuntu:lastest</code></pre></li>
+<li><p>이미지 이름 뒤에 lastest를 설정하면 최신 버전을 받음</p>
+</li>
+</ul>
+<h3 id="images명령으로-이미지-목록-출력하기"><a href="#images명령으로-이미지-목록-출력하기" class="headerlink" title="images명령으로 이미지 목록 출력하기"></a><code>images</code>명령으로 이미지 목록 출력하기</h3><p><strong>docker images</strong></p>
+<ul>
+<li><p>모든 이미지를 출력해보기</p>
+<pre><code>$ sudo docker images</code></pre></li>
+</ul>
+<h3 id="run명령으로-컨테이너-생성하기"><a href="#run명령으로-컨테이너-생성하기" class="headerlink" title="run명령으로 컨테이너 생성하기"></a><code>run</code>명령으로 컨테이너 생성하기</h3><p><strong>docker run &lt;옵션&gt; &lt;이미지 이름&gt; &lt;실행할 파일&gt;</strong></p>
+<ul>
+<li><p>이미지를 컨테이너로 생성한 뒤 Bash 셸 실행해보기</p>
+<pre><code>$ sudo docker run -i -t --name hello ubuntu /bin/bash</code></pre></li>
+</ul>
+<p><code>ubuntu</code> 이미지를 컨테이너로 생성한 뒤 <code>ubuntu</code> 이미지 안의 /bin/bash를 실행</p>
+<ul>
+<li>-i (interactive), -t (pseudo-tty) 옵션으로 실행된 bash 셸에 입력 및 출력 가능</li>
+<li>–name 옵션으로 컨테이너에 이름 지정 가능</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://qjatn9957.github.io/2019/07/09/도커-설치와-기본-명령어/" data-id="cjxujstul0000hovtk9fhefwo" class="article-share-link">공유</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/basic/">basic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/installation/">installation</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">카테고리</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">태그</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/basic/">basic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/installation/">installation</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">태그 클라우드</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/basic/" style="font-size: 10px;">basic</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/installation/" style="font-size: 10px;">installation</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">아카이브</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">7월 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">최근 포스트</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/07/09/도커-설치와-기본-명령어/">도커 설치와 기본 명령어</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Beomsu Kwon<br>
+      Powered by <a href="http://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
